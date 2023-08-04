@@ -1,0 +1,419 @@
+From 55bedaf996ddb62cf04362758c4b01c302333e9b Mon Sep 17 00:00:00 2001
+From: mansigupta <gmansi220@gmail.com>
+Date: Fri, 4 Aug 2023 12:31:23 +0530
+Subject: [PATCH] moved .c files from my projects to main
+
+---
+ Makefile     |   3 +
+ a.out        | Bin 0 -> 8304 bytes
+ delete.c     |  26 -------
+ first.txt    |   1 -
+ insert.c     |  17 ----
+ linkedlist.c | 214 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ main.c       |  14 ----
+ print.c      |  16 ----
+ 8 files changed, 217 insertions(+), 74 deletions(-)
+ create mode 100644 Makefile
+ create mode 100755 a.out
+ delete mode 100644 delete.c
+ delete mode 100644 first.txt
+ delete mode 100644 insert.c
+ create mode 100644 linkedlist.c
+ delete mode 100644 main.c
+ delete mode 100644 print.c
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..52164cf
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,3 @@
++final:
++	gcc insert.c delete.c print.c main.c -o final
++
+diff --git a/a.out b/a.out
+new file mode 100755
+index 0000000000000000000000000000000000000000..0da616f14409fd659e4d26f6e172680d15dbb5da
+GIT binary patch
+literal 8304
+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
+UuhYsoZ+ZP)(!o3gh5GgX4Tkj=Gynhq
+
+literal 0
+HcmV?d00001
+
+diff --git a/delete.c b/delete.c
+deleted file mode 100644
+index d516f1e..0000000
+--- a/delete.c
++++ /dev/null
+@@ -1,26 +0,0 @@
+-#include <stdio.h>
+-#include <stdlib.h>
+-#include"node.h"
+-
+-void delete(struct Node** present, int i)
+-{
+-    struct Node* temp = *present;
+-    struct Node* previous = NULL;
+-    if (temp != NULL && i == temp->data) {
+-        *present = temp->next;
+-        free(temp);
+-    } else {
+-        while (temp != NULL && temp->data != i)
+-        {
+-            previous = temp;
+-            temp = temp->next;
+-        }
+-        if (temp == NULL)
+-        {
+-            printf("Key not found. \n");
+-            return;
+-        }
+-        previous->next = temp->next;
+-        free(temp);
+-    }
+-}
+diff --git a/first.txt b/first.txt
+deleted file mode 100644
+index 3426513..0000000
+--- a/first.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-makwdwjdfhdehfuoeh
+diff --git a/insert.c b/insert.c
+deleted file mode 100644
+index 632b3c7..0000000
+--- a/insert.c
++++ /dev/null
+@@ -1,17 +0,0 @@
+-#include <stdlib.h>
+-#include"node.h"
+-
+-struct Node* create(int data)
+-{
+-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+-    newNode->data = data;
+-    newNode->next = NULL;
+-    return newNode;
+-}
+-
+-void insert(struct Node** present, int data)
+-{
+-    struct Node* newNode = create(data);
+-    newNode->next = *present;
+-    *present = newNode;
+-}
+diff --git a/linkedlist.c b/linkedlist.c
+new file mode 100644
+index 0000000..f58c4e5
+--- /dev/null
++++ b/linkedlist.c
+@@ -0,0 +1,214 @@
++#include<stdio.h>  
++#include<stdlib.h>  
++struct node   
++{  
++    int data;  
++    struct node *next;   
++};  
++struct node *start;  
++               /*fuction declaration of all the operations*/
++void insert_begin();   
++void insert_last();  
++void insert_locc();  
++void delete_begin();  
++void delete_last();  
++void delete_locc();  
++void print();  
++void main ()  
++{  
++    int ch=0;  
++    while(ch!=8)   
++    {    
++        printf("\nEnter the operation to be performed\n");    
++        printf("\n1.Insert in the begining\n2.Insert at last\n3.Insert at any specified position\n4.Delete from Beginning\n5.Delete from last\n6.Delete node after specified location\n7.Show\n8.Exit\n");           
++        scanf("\n%d",&ch);  
++        switch(ch)  
++        {        /*function calls of all the operations */
++            case 1:  
++            insert_begin();       
++            break;  
++            case 2:  
++            insert_last();         
++            break;  
++            case 3:  
++            insert_locc();       
++            break;  
++            case 4:  
++            delete_begin();       
++            break;  
++            case 5:  
++            delete_last();        
++            break;  
++            case 6:  
++            delete_locc();           
++            break;  
++            case 7:  
++            print();        
++            break;  
++            case 8:  
++            exit(0);  
++            break;  
++            default:  
++            printf("Enter valid option");  
++        }  
++    }  
++}           
++void insert_begin()                  //to insert the node at the beginnning of linked list
++{  
++    struct node *p;  
++    int value;  
++    p=(struct node *) malloc(sizeof(struct node *));  
++    if(p==NULL)  
++    {  
++        printf("\nOVERFLOW");  
++    }  
++    else  
++    {  
++        printf("\nEnter value\n");    
++        scanf("%d",&value);    
++        p->data=value;  
++        p->next=start;  
++        start=p;  
++    }  
++}  
++void insert_last()                //to insert the node at the last of linked list
++{  
++    struct node *p,*temp;  
++    int value;     
++    p=(struct node*)malloc(sizeof(struct node));      
++    if(p==NULL)  
++    {  
++        printf("\nOVERFLOW");     
++    }  
++    else  
++    {  
++        printf("\nEnter value\n");  
++        scanf("%d",&value);  
++        p->data=value;  
++        if(start==NULL)  
++        {  
++            p->next=NULL;  
++            start=p;  
++        }  
++        else  
++        {  
++            temp=start;  
++            while(temp->next!=NULL)  
++            {  
++                temp=temp->next;  
++            }  
++            temp->next=p;  
++            p->next=NULL;  
++        }  
++    }  
++}  
++void insert_locc()               //to insert the node at the specified location of linked list
++{  
++    int i,loc,value;   
++    struct node *p, *temp;  
++    p=(struct node *)malloc(sizeof(struct node));  
++    if(p==NULL)  
++    {  
++        printf("\nOVERFLOW");  
++    }  
++    else  
++    {  
++        printf("\nEnter element value");  
++        scanf("%d",&value);  
++        p->data=value;  
++        printf("\nEnter the location after which you want to insert ");  
++        scanf("\n%d",&loc);  
++        temp=start;  
++        for(i=0;i<loc;i++)  
++        {  
++            temp=temp->next;  
++            if(temp==NULL)  
++            {  
++                printf("\ncan't insert\n");  
++                return;  
++            }  
++        }  
++        p->next=temp->next;   
++        temp->next=p; 
++    }  
++}  
++void delete_begin()          //to delete the node present in the beginning of the linked list
++{  
++    struct node *p;  
++    if(start==NULL)  
++    {  
++        printf("\nList is empty\n");  
++    }  
++    else   
++    {  
++        p=start;  
++        start=p->next;  
++        free(p);  
++    }  
++}  
++void delete_last()          //to delete the node present in the last of the linked list
++{  
++    struct node *p,*p1;  
++    if(start==NULL)  
++    {  
++        printf("\nlist is empty");  
++    }  
++    else if(start->next==NULL)  
++    {  
++        start=NULL;  
++        free(start);  
++        printf("\nOnly node of the list deleted ...\n");  
++    }  
++    else  
++    {  
++        p=start;   
++        while(p->next!=NULL)  
++        {  
++            p1=p;  
++            p=p->next;  
++        }  
++        p1->next=NULL;  
++        free(p);  
++    }     
++}  
++void delete_locc()    //to delete the node from a specified location of the linked list
++{  
++    struct node *p,*p1;  
++    int loc,i;    
++    printf("\n Enter the location of the node after which you want to perform deletion \n");  
++    scanf("%d",&loc);  
++    p=start;  
++    for(i=0;i<loc;i++)  
++    {  
++        p1=p;       
++        p=p->next;  
++           
++        if(p==NULL)  
++        {  
++            printf("\nCan't delete");  
++            return;  
++        }  
++    }  
++    p1->next=p->next;  
++    free(p);  
++    printf("\nDeleted node %d ",loc+1);  
++}  
++void print()    //to print the values in the linked list
++{  
++    struct node *p;  
++    p=start;   
++    if(p==NULL)  
++    {  
++        printf("Nothing to print");  
++    }  
++    else  
++    {  
++        printf("\nprinting values\n");   
++        while (p!=NULL)  
++        {  
++            printf("\n%d",p->data);  
++            p=p->next;  
++        }  
++    }  
++}     
++ 
+diff --git a/main.c b/main.c
+deleted file mode 100644
+index f8f6c30..0000000
+--- a/main.c
++++ /dev/null
+@@ -1,14 +0,0 @@
+-#include <stdio.h>
+-#include "node.h"
+-int main()
+-{
+-    struct Node* listHead = NULL;
+-    insert(&listHead, 1);
+-    insert(&listHead, 2);
+-    insert(&listHead, 3);
+-    insert(&listHead, 4);
+-    printList(listHead);
+-    delete(&listHead, 2);
+-    printList(listHead);
+-    return 0;
+-}
+diff --git a/print.c b/print.c
+deleted file mode 100644
+index bcfb037..0000000
+--- a/print.c
++++ /dev/null
+@@ -1,16 +0,0 @@
+-#include <stdio.h>
+-
+-#include"node.h"
+-
+- 
+-
+-void printList(struct Node* presentHead)
+-{
+-    struct Node* temp = presentHead;
+-    while (temp != NULL)
+-    {
+-        printf("%d -> ", temp->data);
+-        temp = temp->next;
+-    }
+-    printf("NULL\n");
+-}
+-- 
+2.17.1
+
